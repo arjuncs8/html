@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title> SIGNUP FORM </title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+			<link rel="shortcut icon" href="download.jpg" type="image">
+			 <link rel="stylesheet" href="style1.css">
+			<script>/*
+			function check_pass() {
+    if (document.getElementById('password').value ==
+            document.getElementById('confirm_password').value) {
+        document.getElementById('submit').disabled = false;
+    } else {
+        document.getElementById('submit').disabled = true;
+    }
+}
+			</script>*/
+	
+</head>
+    <body>
+ <nav>
+    <div class="wrapper">
+      <div class="logo"><a href="homee.html">Event Management</a></div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+        <li><a href="homee.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li>
+          <a href="#" class="desktop-item">events</a>
+          <input type="checkbox" id="showDrop">
+          <label for="showDrop" class="mobile-item">events</label>
+          <ul class="drop-menu">
+            <li><a href="#">marriage</a></li>
+            <li><a href="#">birthday</a></li>
+            
+          </ul>
+        </li>
+        
+        <li><a href="#">Feedback</a></li>
+		
+		<li><a href="loffgg.html">login</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+	</nav>
+<div class="login-box">
+    <img src="download.jpg" class="avatar" href="home.html">
+        <h1>Sign-Up Here</h1>
+            <form action="reg.php" method="POST">
+			<p> First Name</p>
+			 <input type="text" name="fname" placeholder="Enter Your First Name">
+			 <p>Last Name</p>
+			 <input type="text" name="lname" placeholder="Enter Your Last Name">
+			 <p> Email ID </p>
+			  <input type="text" name="email" placeholder="Enter email ID">
+			  <p> mobile number </p>
+			  <input type="text" name="mob" placeholder="Enter mobile number">
+			  <p> Date Of Birth</p>
+			   <input type="date" name="dob" placeholder="Enter Your DOB">
+            <p>UserID</p>
+            <input type="text" name="username" placeholder="Enter UserID">
+            <p>Password</p>
+            <input type="password" name="password"  placeholder="Enter Password" />
+	
+            <input type="submit" name="submit" value="Sign-Up">
+               <input type="reset"> 
+            </form>
+        
+        
+        </div>
+    
+    </body>
+</html>
