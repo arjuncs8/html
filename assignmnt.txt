@@ -1,0 +1,87 @@
+INSERING INTO TWO TABLES USING A SINGLE PROCEDURE.
+------------------------
+CREATE TABLE students(
+  rollno number(20),
+  name varchar2(25),
+  class number(20),
+  CONSTRAINT students_pk PRIMARY KEY (rollno));
+
+CREATE TABLE marks(
+  hallticketno num(20),
+  phy num(20),
+  chem num(20),
+  math num(20),
+  result varchar2(25),
+  CONSTRAINT marks_pk PRIMARY KEY (hallticketno));
+
+
+CREATE OR REPLACE PROCEDURE Insert_Check(rollno IN number,name IN varchar2,class IN number,hallticketno IN number,physics IN number,chemistry IN number,maths IN number,result IN varchar2)IS
+  BEGIN    
+  insert into students values(rollno,name,class);
+  insert into marks values(hallticketno,phy,chem,maths,result);
+  END;  
+
+ 
+DECLARE
+BEGIN
+insert_Check(413414,'mahithavijay','45',210521,45,48,50,'a');
+EXCEPTION
+ WHEN DUP_VAL_ON_INDEX THEN
+ dbms_output.put_line('unique index is repeated re enter data.');
+ rollback;
+ WHEN OTHERS THEN
+ dbms_output.put_line('data types entered do match please re-enter the data.');
+ rollback;
+END;
+
+
+select * from students
+select * from marks
+----------------------------------------------------------
+DISPLAYING SINGLE ROW USING FUNCTION
+--------------------------------
+create or replace function singleRow (id number)
+   return sys_refcursor
+is
+   c sys_refcursor;
+begin
+   open c for
+   select * from marks where hallticketno = id;
+   return c;
+end singleRow;
+ 
+declare
+c sys_refcursor;
+TYPE marks is RECORD(hallticketno number,phy number,chem number,math number,result varchar2(25));
+rec marks;
+begin
+  c:=singleRow(121);
+  fetch c into rec;
+  dbms_output.put_line(rec.hallticketno||','||rec.phy||','||rec.chem||','||rec.math||','||rec.result);
+end;
+
+-------------------------------------------------------------
+DISPLAYING MULTIPLE ROWS USING FUNTIONS
+-------------------
+create or replace function multipleRows
+   return sys_refcursor
+is
+   c sys_refcursor;
+begin
+   open c for
+   select * from students;
+   return c;
+end multipleRows;
+ 
+declare
+c sys_refcursor;
+TYPE students is RECORD(rollno number,name varchar2(20),class number);
+rec students;
+begin
+  c:=multipleRows();
+  loop
+  fetch c into rec;
+  exit when c%notfound;
+  dbms_output.put_line(rec.rollno||','||rec.name||','||rec.class);
+  end loop;
+end;
