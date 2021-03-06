@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    padding: 0;
+	opacity: 1;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    font-family: sans-serif;
+}
+  .image {
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow);
+  }
+  .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .1s ease;
+    opacity:0;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+  }
+  
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+  }
+  .container:hover .overlay {
+    opacity: 1;
+  }
+  .image:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+  }

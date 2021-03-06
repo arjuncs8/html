@@ -1,0 +1,38 @@
+.portfolio {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+  
+  .portfolio img {
+    width: 80%;
+    box-shadow: var(--shadow);
+  }
+  .imgs:hover{
+    -ms-transform: scale(2.0); /* IE 9 */
+    -webkit-transform: scale(2.0); /* Safari 3-8 */
+    transform: scale(2.0); 
+  }
+  .wrapper{
+    display: grid;
+    grid-gap: 20px;
+}
+body{
+    margin: 0;
+    padding: 0;
+	opacity: 1;
+    color: rgba(25, 238, 53, 0.801);
+    font-weight: bold;
+    background-color: black;
+    font-family: sans-serif;
+}
+.image {
+    /* The image used */
+    background-image: url("D:\angular\project\src\assets\back2.jpg");
+    
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    background-size: cover;
+    background-position:center;
+  }
